@@ -283,6 +283,35 @@ multi-GPU/multi-node training.
 - [Automatic Speech Recognition](nemo/collections/asr/README.md)
 - [Text to Speech](nemo/collections/tts/README.md)
 
+## Local Usage & Documentation
+
+| Resource | Description |
+|----------|-------------|
+| [Local Setup Guide](docs/LOCAL_SETUP.md) | Step-by-step installation for all platforms |
+| [Use Cases](docs/USECASES.md) | Code examples: ASR, TTS, Audio Processing |
+| [Prompts Guide](docs/PROMPTS.md) | Prompt templates for NeMo model workflows |
+| [Agent Skills](agents/README.md) | Pre-built agent scripts for common tasks |
+
+## Agent Skills
+
+Ready-to-run Python agent scripts for common NeMo workflows:
+
+```bash
+# Transcribe an audio file
+python agents/asr-agent/transcribe.py --audio meeting.wav --output transcript.txt
+
+# Batch transcription
+python agents/asr-agent/batch_transcribe.py --input-dir audio/ --output transcripts.json
+
+# Generate speech
+python agents/tts-agent/synthesize.py --text "Hello!" --output speech.wav
+
+# Analyze a meeting recording
+python agents/audio-agent/analyze_meeting.py --audio meeting.wav --output report.json
+```
+
+See [agents/README.md](agents/README.md) for full documentation.
+
 ## Requirements
 
 - Python 3.12 or above
