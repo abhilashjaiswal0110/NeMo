@@ -27,9 +27,6 @@ python agents/tts-agent/synthesize.py --text "Hello, world!" --output speech.wav
 # TTS: Batch generation from file
 python agents/tts-agent/batch_synthesize.py --input sentences.txt --output-dir audio/
 
-# Audio: Enhance noisy audio
-python agents/audio-agent/enhance.py --input noisy.wav --output clean.wav
-
 # Audio: Analyze a meeting recording
 python agents/audio-agent/analyze_meeting.py --audio meeting.wav --output report.json
 ```

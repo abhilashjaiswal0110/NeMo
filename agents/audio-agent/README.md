@@ -4,10 +4,10 @@ An agent skill for audio processing and analysis using NVIDIA NeMo models.
 
 ## Features
 
-- Speech enhancement and noise reduction
-- Speaker diarization (who spoke when)
-- Audio quality assessment
-- Meeting recording analysis with speaker labels
+- Transcription of meeting recordings using NeMo ASR models
+- Audio quality assessment (RMS amplitude, peak, SNR estimate)
+- Speaker count specification for future diarization workflows
+- Meeting recording analysis with structured JSON reports
 
 ## Prerequisites
 
@@ -17,14 +17,6 @@ pip install soundfile
 ```
 
 ## Usage
-
-### Enhance Noisy Audio
-
-```bash
-python agents/audio-agent/enhance.py \
-  --input noisy_recording.wav \
-  --output clean_recording.wav
-```
 
 ### Analyze a Meeting Recording
 
@@ -53,17 +45,19 @@ python agents/audio-agent/analyze_meeting.py \
 ```json
 {
   "audio_filepath": "meeting.wav",
-  "duration_seconds": 3600,
-  "num_speakers_detected": 3,
-  "transcript": "SPEAKER_1: Hello everyone...",
-  "segments": [
-    {
-      "speaker": "SPEAKER_1",
-      "start": 0.5,
-      "end": 3.2,
-      "text": "Hello everyone, let's get started."
-    }
-  ]
+  "filename": "meeting.wav",
+  "transcript": "Hello everyone let us get started...",
+  "word_count": 42,
+  "num_speakers_requested": 3,
+  "notes": "Speaker diarization requires additional NeMo setup. See docs/USECASES.md for full diarization workflow.",
+  "audio_quality": {
+    "duration_seconds": 3600.0,
+    "sample_rate": 16000,
+    "rms_amplitude": 0.032451,
+    "peak_amplitude": 0.981234,
+    "snr_estimate_db": 25.3,
+    "channels": 1
+  }
 }
 ```
 
