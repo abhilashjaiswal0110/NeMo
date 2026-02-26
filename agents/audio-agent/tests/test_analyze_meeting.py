@@ -223,7 +223,7 @@ class TestBuildReport:
 
     @pytest.mark.unit
     def test_report_empty_transcript(self):
-        """Empty transcript should have word_count of 1 (empty split)."""
+        """Empty transcript should have word_count of 0."""
         report = analyze_meeting.build_report("a.wav", "", {}, None)
         # "".split() returns [] so len is 0
         assert report["word_count"] == 0
